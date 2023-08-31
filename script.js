@@ -34,10 +34,10 @@ fetch('https://hp-api.onrender.com/api/characters').then(response =>{
         const hogwartsStudentPersonaje = fila.insertCell(14);
         const hogwartsStaffPersonaje = fila.insertCell(15);
         const actorPersonaje = fila.insertCell(16);
-        const alternate_actorsPersonaje = fila.insertCell(17)
-        const alivePersonaje = fila.insertCell(18);
+       // const alternate_actorsPersonaje = fila.insertCell(17)
+        const alivePersonaje = fila.insertCell(17);
 
-        const imagePersonaje = fila.insertCell(19);
+        const imagePersonaje = fila.insertCell(18);
         const imageElement = document.createElement('img');
         if(datoPersonaje.image){
             imageElement.src = datoPersonaje.image;
@@ -52,7 +52,7 @@ fetch('https://hp-api.onrender.com/api/characters').then(response =>{
         //agregamos el texto html y pasamos los valores de la API
         idPersonaje.innerText = datoPersonaje.id;
         namePersonaje.innerText = datoPersonaje.name;
-        alternate_namesPersonaje.innerText = datoPersonaje.alternate_names;
+        alternate_namesPersonaje.innerText = datoPersonaje.alternate_names.length > 0 ? datoPersonaje.alternate_names.join(', ') : 'N/A';
         speciesPersonaje.innerText = datoPersonaje.species;
         genderPersonaje.innerText = datoPersonaje.gender;
         housePersonaje.innerText = datoPersonaje.house;
@@ -62,19 +62,59 @@ fetch('https://hp-api.onrender.com/api/characters').then(response =>{
         ancestryPersonaje.innerText = datoPersonaje.ancestry;
         eyeColourPersonaje.innerText = datoPersonaje.eyeColour;
         hairColourPersonaje.innerText = datoPersonaje.hairColour;
-        wandPersonaje.innerText = datoPersonaje.wand;
-        patronusPersonaje.innerText = datoPersonaje.patronusPersonaje;
+        //Para el objeto
+        if (datoPersonaje.wand && typeof datoPersonaje.wand === 'object') {
+            const wandDetails = [];
+            if (datoPersonaje.wand.wood) {
+                wandDetails.push(`Wood: ${datoPersonaje.wand.wood}`);
+            }
+            if (datoPersonaje.wand.core) {
+                wandDetails.push(`Core: ${datoPersonaje.wand.core}`);
+            }
+            if (datoPersonaje.wand.length) {
+                wandDetails.push(`Length: ${datoPersonaje.wand.length}`);
+            }
+            wandPersonaje.innerText = wandDetails.join(', ');
+        } else {
+            wandPersonaje.innerText = 'N/A';
+        }
+
+        patronusPersonaje.innerText = datoPersonaje.patronus;
         hogwartsStudentPersonaje.innerText = datoPersonaje.hogwartsStudent ? "Sí": "No";
         hogwartsStaffPersonaje.innerText = datoPersonaje.hogwartsStaff ? "Sí": "No";
         actorPersonaje.innerText = datoPersonaje.actor;
-        alternate_actorsPersonaje.innerHTML = datoPersonaje.alternate_actors;
+        //alternate_actorsPersonaje.innerHTML = datoPersonaje.alternate_actors;
         alivePersonaje.innerText = datoPersonaje.alive;
     });
-
     })
-
-   
     .catch(error =>{
         console.log('Error',error);
     })
+
+    //Obtenemos el valor del input
+    const inputBusqueda = document.getElementById('inputBusqueda');
+    //llamamos a la funcion buscarPersonaje al momento de ejecutar el input
+    inputBusqueda.addEventListener('input', buscarPersonaje);
     
+    function buscarPersonaje() {
+        //lo pso a minuscula para que la busqueda funcione si se escirbe en mayusculas
+        const terminoBusqueda = inputBusqueda.value.toLowerCase();
+        //obtenemos las filas de la tabla
+        const filas = document.getElementById('tablePersonaje').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+        
+        //Busqueda de coincidencias con loe elementos de la tabla
+        for (const fila of filas) {
+            const celdas = fila.getElementsByTagName('td');
+            let coincide = false;
+            for (const celda of celdas) {
+                const contenido = celda.innerText.toLowerCase();
+                if (contenido.includes(terminoBusqueda)) {
+                    coincide = true;
+                    break;
+                }
+            }
+            fila.style.display = coincide ? '' : 'none';
+        }
+
+
+    }

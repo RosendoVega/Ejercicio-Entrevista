@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="styleSheet" href="./styles.css">
     <title>Ejercicio Entrevista</title>
 </head>
 <body>
@@ -18,10 +19,17 @@
                     </label>
                 </div>
             </section>
+            <select  type="text" id="selectBusqueda">
+                <option>Gryffindor</option>
+                <option>Slytherin</option>
+                <option>Hufflepuff</option>
+                <option>Ravenclaw</option>
+            </select>
             <input type="text" id="inputBusqueda" placeholder="Buscar...">
             <table id="tablePersonaje" border="1">
                 <thead>
                     <tr>
+                        <th>image</th>
                         <th>id</th>
                         <th>name</th>
                         <th>alternate_names</th>
@@ -41,7 +49,7 @@
                         <th>actor</th>
                        <!-- <th>alternate_actors</th>-->
                         <th>alive</th>
-                        <th>image</th>
+                        
                     </tr>
                 </thead>
                 <tbody>

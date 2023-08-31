@@ -1,0 +1,73 @@
+body {
+    font-family: "Arial", sans-serif;
+}
+
+#tablePersonaje {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+}
+
+#tablePersonaje th, #tablePersonaje td {
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+#tablePersonaje th {
+    color: white;
+    background-color: #066832;
+
+}
+
+#tablePersonaje tbody tr:hover {
+    background-color: #d3e0d6;
+}
+
+#sectionBusqueda {
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+}
+
+#sectionBusqueda h1 {
+    font-size: 40px;
+    text-transform: uppercase;
+    margin-bottom: 1px;
+}
+
+#sectionBusqueda h2 {
+    font-size: 30px;
+    margin-bottom: 1px;
+}
+
+#selectBusqueda, #inputBusqueda {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 300px;
+}
+
+#inputBusqueda {
+    flex-grow: 1;
+}
+
+@media screen and (max-width: 768px) {
+    #sectionBusqueda {
+        padding: 15px;
+    }
+
+    #sectionBusqueda h1 {
+        font-size: 20px;
+    }
+
+    #selectBusqueda, #inputBusqueda {
+        padding: 8px;
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+}

@@ -1,63 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="styleSheet" href="./styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="styleSheet" href="./styles.css" />
     <title>Ejercicio Entrevista</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <section>
-            <section id="header">
-                <h1 id="simplePageHead">Personajes</h1>
-            </section>
-            <section id="section">
-                <div>
-                    <label>Filter
-
-                    </label>
-                </div>
-            </section>
-            <select  type="text" id="selectBusqueda">
-                <option>Gryffindor</option>
-                <option>Slytherin</option>
-                <option>Hufflepuff</option>
-                <option>Ravenclaw</option>
-            </select>
-            <input type="text" id="inputBusqueda" placeholder="Buscar...">
-            <table id="tablePersonaje" border="1">
-                <thead>
-                    <tr>
-                        <th>image</th>
-                        <th>id</th>
-                        <th>name</th>
-                        <th>alternate_names</th>
-                        <th>species</th>
-                        <th>gender</th>
-                        <th>house</th>
-                        <th>dateOfBirth</th>
-                        <th>yearOfBirth</th>
-                        <th>wizard</th>
-                        <th>ancestry</th>
-                        <th>eyeColour</th>
-                        <th>hairColour</th>
-                        <th>Wand</th>
-                        <th>patronus</th>
-                        <th>hogwartsStudent</th>
-                        <th>hogwartsStaff</th>
-                        <th>actor</th>
-                       <!-- <th>alternate_actors</th>-->
-                        <th>alive</th>
-                        
-                    </tr>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
+      <section>
+        <section id="sectionBusqueda">
+          <section id="header">
+            <h1 id="header">personajes de harry potter</h1>
+          </section>
+          <h2>Busqueda</h2>
+          <select type="text" id="selectBusqueda">
+            <option>Gryffindor</option>
+            <option>Slytherin</option>
+            <option>Hufflepuff</option>
+            <option>Ravenclaw</option>
+          </select>
+          <input type="text" id="inputBusqueda" placeholder="Buscar..." />
         </section>
+        <div class="table-container">
+          <table id="tablePersonaje" border="1">
+            <thead>
+              <tr>
+                <th>image</th>
+                <th>id</th>
+                <th>name</th>
+                <th>alternate_names</th>
+                <th>species</th>
+                <th>gender</th>
+                <th>house</th>
+                <th>dateOfBirth</th>
+                <th>yearOfBirth</th>
+                <th>wizard</th>
+                <th>ancestry</th>
+                <th>eyeColour</th>
+                <th>hairColour</th>
+                <th>Wand</th>
+                <th>patronus</th>
+                <th>hogwartsStudent</th>
+                <th>hogwartsStaff</th>
+                <th>actor</th>
+                <!-- <th>alternate_actors</th>-->
+                <th>alive</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
     </div>
     <script type="text/javascript" src="script.js"></script>
-</body>
+  </body>
 </html>

@@ -4,7 +4,7 @@ Ejercicio Rosendo Vega Mateos
 
 ## Vista Principal 👋
 **Al cargar la pgina, realiza la conexion con la API y muestra en forma de tabla los valores obtenidos**
- ![Vista principal](imagesVista/vistaPrincipal.png)
+ ![Vista principal](imagesVista/vistaPrincipal.PNG)
 
 
 ## Autor
